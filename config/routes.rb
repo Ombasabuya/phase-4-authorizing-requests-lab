@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+
+  get '/members_only_articles', to: 'members_only_articles#index'
+get '/members_only_articles/:id', to: 'members_only_articles#show'
+
 end

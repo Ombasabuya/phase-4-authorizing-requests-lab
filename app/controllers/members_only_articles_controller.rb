@@ -16,5 +16,9 @@ class MembersOnlyArticlesController < ApplicationController
   def record_not_found
     render json: { error: "Article not found" }, status: :not_found
   end
-
+  private
+  def require_login
+    unless current_user
+      render json: { error: 'You must be logged in to access this page' }, status: :unauthorized
+    end
 end
